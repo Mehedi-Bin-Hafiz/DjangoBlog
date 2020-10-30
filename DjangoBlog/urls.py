@@ -21,7 +21,7 @@ from posts.views import post_home,post_delete,post_list,post_detail
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r"^post/$",post_home),
-    url(r"^detail/$",post_detail),
+    url(r"^(?P<id>\d+)/$",post_detail, name='details'),
     url(r"^post_list/$",post_list),
     url(r"^delete/$",post_home),
 ]
