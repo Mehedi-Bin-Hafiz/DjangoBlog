@@ -1,4 +1,4 @@
-from django.shortcuts import render,HttpResponse
+from django.shortcuts import render,HttpResponse, get_object_or_404
 
 # Create your views here.
 
@@ -8,12 +8,12 @@ def post_home(request):
     return HttpResponse("<h1>This is home</h1>")
 
 def post_detail(request):
-
+    instance = get_object_or_404(Post, id = 1)
     context = {
-        'title': "details",
-        'content': "this is post details"
+        'title': instance.title,
+        'instance': instance
     }
-    return render(request, "index.html", context)
+    return render(request, "post_detail.html", context)
 def post_list(request):
     qs = Post.objects.all()
     context = {
