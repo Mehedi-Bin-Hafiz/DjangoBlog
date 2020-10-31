@@ -1,5 +1,5 @@
-from django.shortcuts import render,HttpResponse, get_object_or_404
-
+from django.shortcuts import render,HttpResponse, get_object_or_404, HttpResponseRedirect
+from .forms import PostForm
 # Create your views here.
 
 from .models import Post
@@ -23,3 +23,16 @@ def post_list(request):
     return render(request, "index.html", context)
 def post_delete(request):
     return HttpResponse("<h1>This is delete</h1>")
+
+def post_create(request):
+    form = PostForm(request.POST or None)
+    if form.is_valid():
+        instance = form.save(commit=False)  # this instance is related to Post model.
+        instance.save()
+        return HttpResponseRedirect(instance.get_absolute_url())
+    context = {
+        'mytitle': 'Create Post',
+        'form':form
+    }
+
+    return render(request,'create_post.html',context)
