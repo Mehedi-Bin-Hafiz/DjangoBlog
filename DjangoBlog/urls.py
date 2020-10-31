@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url
 from posts.views import post_home,post_delete,post_list,post_detail,post_create
+from .views import my_home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,4 +26,5 @@ urlpatterns = [
     url(r"^post_list/$",post_list),
     url(r"^post_create/$",post_create),
     url(r"^delete/$",post_home),
+    url(r"",my_home),
 ]
