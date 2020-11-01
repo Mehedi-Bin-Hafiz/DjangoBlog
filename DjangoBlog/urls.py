@@ -21,10 +21,10 @@ from .views import my_home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r"^post/$",post_home),
+    url(r"^post/$",post_home,name='posthome'),
     url(r"^(?P<id>\d+)/$",post_detail, name='details'),
     url(r"^post_list/$",post_list),
     url(r"^post_create/$",post_create),
     url(r"^delete/$",post_home),
-    url(r"",my_home),
+    url(r"",my_home,name='MyHome'),
 ]

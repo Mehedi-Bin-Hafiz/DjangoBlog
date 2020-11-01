@@ -5,7 +5,7 @@ from .forms import PostForm
 from .models import Post
 
 def post_home(request):
-    return HttpResponse("<h1>This is home</h1>")
+    return HttpResponse("<h1 style='text-align: center; color: red;'>Page will be updated</h1>")
 
 def post_detail(request, id = None): #id technically is a keyword args
     instance = get_object_or_404(Post, id = id)

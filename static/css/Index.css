@@ -297,37 +297,54 @@ body{
     margin-left:30px;
     box-sizing: border-box;
     width: 40%;
-    height: 300px;
+    height: 400px;
     display: inline-block;
     float:left;
+    margin-top: 40px;
 
 }
 
-#contact div.contactclass div.messageinfo{
+
+
+.messageinfor {
     clear: both;
     box-sizing: border-box;
-    width: 49%;
     height: auto;
+    width: 75%;
     display: inline-block;
-    margin-top: 10px;
-    margin-left: 50px;
     float: right;
+    margin-top: 10px;
+    margin-left:10px;
     position: absolute;
+
 }
-#contact div.contactclass div.messageinfo table tr td p{
+.messageinfor form {
+
+    margin-left: 150px;
+
+
+}
+div.messageinfor  p{
     font-weight: bold;
 }
 
-#contact div.contactclass div.messageinfo table tr td input[type=text],[type=email]{
-    width: 100%;
+div.messageinfor   input[type=text]{
+    width: 60%;
     padding: 5px 20px;
     margin: 8px 0;
     box-sizing: border-box;
 }
-#contact div.contactclass div.messageinfo table tr td input[type=textarea]{
-    width: 100%;
-    height: 100%;
+
+div.messageinfor input[type=email]{
+    width: 60%;
     padding: 5px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+
+}
+div.messageinfor textarea{
+    width:60%;
+    padding: 5px 5px;
     margin: 8px 0;
     box-sizing: border-box;
     border-radius: 0px;
