@@ -23,9 +23,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r"^post/$",post_home,name='posthome'),
     url(r"^(?P<id>\d+)/$",post_detail, name='details'),
-    url(r"^post_list/$",post_list),
+    url(r"^post_list/$",post_list,name='postlist'),
     url(r"^post_create/$",post_create),
     url(r"^(?P<id>\d+)/edit/$",post_update,name='update'),
-    url(r"^delete/$",post_home),
+    url(r"^(?P<id>\d+)/delete/$",post_delete),
     url(r"",my_home,name='MyHome'),
 ]

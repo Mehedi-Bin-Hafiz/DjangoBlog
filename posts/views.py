@@ -1,4 +1,4 @@
-from django.shortcuts import render,HttpResponse, get_object_or_404, HttpResponseRedirect
+from django.shortcuts import render,HttpResponse, get_object_or_404, HttpResponseRedirect, redirect
 from django.contrib import messages
 from .forms import PostForm
 # Create your views here.
@@ -22,8 +22,11 @@ def post_list(request):
         'object_list': qs
     }
     return render(request, "index.html", context)
-def post_delete(request):
-    return HttpResponse("<h1>This is delete</h1>")
+def post_delete(request, id=None):
+    instance = get_object_or_404(Post, id=id)
+    instance.delete()
+    messages.success(request,'successfully deleted')
+    return redirect('postlist')
 
 def post_create(request):
     form = PostForm(request.POST or None)
