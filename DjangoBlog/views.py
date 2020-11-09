@@ -23,9 +23,9 @@ def my_home(request):
     except:
         user ='Android'
 
-    send_mail(str(subject),
-              ( str(message) + ' \n\nPerson name: ' + str(name) + '\nMail :' + str(email)+'\n local ip:'+local_ip+'\n mac address: '+str(':'.join(re.findall('..', '%012x' % uuid.getnode())))+"\nPc username is: "+str(user)), EMAIL_HOST_USER,
-                  ['mehedibinhafiz@gmail.com'], fail_silently=False)
+    # send_mail(str(subject),
+    #           ( str(message) + ' \n\nPerson name: ' + str(name) + '\nMail :' + str(email)+'\n local ip:'+local_ip+'\n mac address: '+str(':'.join(re.findall('..', '%012x' % uuid.getnode())))+"\nPc username is: "+str(user)), EMAIL_HOST_USER,
+    #               ['mehedibinhafiz@gmail.com'], fail_silently=False)
     return render(request, 'My_Home.html')
 
 

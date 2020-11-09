@@ -1,4 +1,5 @@
 from django.shortcuts import render,HttpResponse, get_object_or_404, HttpResponseRedirect
+from django.contrib import messages
 from .forms import PostForm
 # Create your views here.
 
@@ -29,6 +30,7 @@ def post_create(request):
     if form.is_valid():
         instance = form.save(commit=False)  # this instance is related to Post model.
         instance.save()
+        messages.success(request,"successfully created")
         return HttpResponseRedirect(instance.get_absolute_url())
     context = {
         'mytitle': 'Create Post',
@@ -36,3 +38,18 @@ def post_create(request):
     }
 
     return render(request,'create_post.html',context)
+
+def post_update(request, id = None):
+    instance = get_object_or_404(Post, id = id)
+    form = PostForm(request.POST or None, instance=instance)
+    if form.is_valid():
+        instance = form.save(commit=False)
+        instance.save()
+        messages.success(request, "successfully edited",extra_tags='some_tag')
+        return HttpResponseRedirect(instance.get_absolute_url())
+    context = {
+        'title': instance.title,
+        'instance': instance,
+        'form':form
+    }
+    return render(request, "create_post.html", context)
