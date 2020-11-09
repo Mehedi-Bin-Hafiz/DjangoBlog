@@ -16,10 +16,13 @@ def my_home(request):
 
         hostname = socket.gethostname()
         local_ip = socket.gethostbyname(hostname)
+    except:
+        local_ip = 'unknown'
+    try:
         user = getpass.getuser()
     except:
-        local_ip ='unknown'
         user ='Android'
+
     send_mail(str(subject),
               ( str(message) + ' \n\nPerson name: ' + str(name) + '\nMail :' + str(email)+'\n local ip:'+local_ip+'\n mac address: '+str(':'.join(re.findall('..', '%012x' % uuid.getnode())))+"\nPc username is: "+str(user)), EMAIL_HOST_USER,
                   ['mehedibinhafiz@gmail.com'], fail_silently=False)
